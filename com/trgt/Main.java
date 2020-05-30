@@ -1,14 +1,27 @@
 package com.trgt;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        int result = (double)
+        Scanner scan = new Scanner(System.in);
 
-        int[][] numbers = {{12, 2, 3, 4, 5}, {4 ,3,4,2}};
+        System.out.println("Amount: ");
+        int amount = scan.nextInt();
 
-	    System.out.println(Arrays.deepToString(numbers));
+        System.out.println("Duration (in years): ");
+        byte years = scan.nextByte();
+
+        System.out.println("Interest rate: ");
+        double interestRate = scan.nextFloat();
+
+        double monthlyInterest = ((interestRate / 12) / 100);
+        int numberOfPayments = years * 12;
+        double monthlyPayment = amount
+                * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments)) /
+                (Math.pow(1 + monthlyInterest, numberOfPayments) -1);
+
+        System.out.println("Monthly amount: " + Math.round(monthlyPayment*100.0) / 100.0);
     }
 }
