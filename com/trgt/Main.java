@@ -17,21 +17,22 @@ public class Main {
 
         byte years = 0;
         while (years < 1 || years > 30) {
-            System.out.println("Duration (in years): "); // between 1 and 30
+            System.out.println("Duration (in years): ");
             years = scan.nextByte();
             if (years < 1 || years > 30)
                 System.out.println("The duration has to be between 1 and 30 years");
         }
 
         double interestRate = -1;
+        double monthlyInterest = 0;
         while (interestRate < 0 || interestRate > 30) {
-            System.out.println("Interest rate: "); // between 0 and 30
+            System.out.println("Interest rate: ");
             interestRate = scan.nextDouble();
             if (interestRate < 0 || interestRate > 30)
                 System.out.println("The interest rate has to be between 0 and 30");
+            monthlyInterest = ((interestRate / 12) / 100)
         }
 
-        double monthlyInterest = ((interestRate / 12) / 100);
         int numberOfPayments = years * 12;
         double monthlyPayment = amount
                 * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments)) /
