@@ -12,12 +12,12 @@ public class Main {
         byte years = getYears(scan);
         double monthlyInterest = getMonthlyInterestRate(scan);
 
-        double monthlyPayment = getMontlyPayment(amount, monthlyInterest, years);
+        double monthlyPayment = getMonthlyPayment(amount, monthlyInterest, years);
 
         System.out.println("Monthly amount: " + Math.round(monthlyPayment * 100.0) / 100.0);
     }
 
-    public static double getMontlyPayment(int amount, double monthlyInterest, byte years) {
+    public static double getMonthlyPayment(int amount, double monthlyInterest, byte years) {
         int numberOfPayments = years * 12;
         double monthlyPayment = amount
                 * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments)) /
@@ -31,7 +31,7 @@ public class Main {
         while (amount < 1_000 || amount > 1_000_000) {
             System.out.println("Amount (€1K - €1M): ");
             amount = scan.nextInt();
-            if (amount < 1_000 || amount > 1_000_00)
+            if (amount < 1_000 || amount > 1_000_000)
                 System.out.println("Please provide an amount between €1K-€1M");
         }
         return amount;
