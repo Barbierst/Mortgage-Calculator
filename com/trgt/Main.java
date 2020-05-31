@@ -7,14 +7,29 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Amount: ");
-        int amount = scan.nextInt();
+        int amount = 0;
+        while (amount < 1_000 || amount > 1_000_000) {
+            System.out.println("Amount (€1K - €1M): ");
+            amount = scan.nextInt();
+            if (amount < 1_000 || amount > 1_000_00)
+                System.out.println("Please provide an amount between €1K-€1M");
+        }
 
-        System.out.println("Duration (in years): ");
-        byte years = scan.nextByte();
+        byte years = 0;
+        while (years < 1 || years > 30) {
+            System.out.println("Duration (in years): "); // between 1 and 30
+            years = scan.nextByte();
+            if (years < 1 || years > 30)
+                System.out.println("The duration has to be between 1 and 30 years");
+        }
 
-        System.out.println("Interest rate: ");
-        double interestRate = scan.nextFloat();
+        double interestRate = -1;
+        while (interestRate < 0 || interestRate > 30) {
+            System.out.println("Interest rate: "); // between 0 and 30
+            interestRate = scan.nextDouble();
+            if (interestRate < 0 || interestRate > 30)
+                System.out.println("The interest rate has to be between 0 and 30");
+        }
 
         double monthlyInterest = ((interestRate / 12) / 100);
         int numberOfPayments = years * 12;
