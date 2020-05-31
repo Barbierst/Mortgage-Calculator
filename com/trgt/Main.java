@@ -30,7 +30,7 @@ public class Main {
             interestRate = scan.nextDouble();
             if (interestRate < 0 || interestRate > 30)
                 System.out.println("The interest rate has to be between 0 and 30");
-            monthlyInterest = ((interestRate / 12) / 100)
+            monthlyInterest = ((interestRate / 12) / 100);
         }
 
         int numberOfPayments = years * 12;
